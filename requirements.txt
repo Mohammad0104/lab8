@@ -42,7 +42,7 @@ pandocfilters==1.5.0
 parso==0.8.2
 pickleshare==0.7.5
 pluggy==1.5.0
-prometheus-client==0.11.0
+prometheus-client==0.21.0
 prompt-toolkit==3.0.20
 psycopg2-binary==2.9.9
 Pygments==2.10.0
