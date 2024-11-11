@@ -14,7 +14,9 @@ jobs:
           python-version: '3.8'
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: |
+          pip install -r requirements.txt
+          pip install pytest-cov  # Ensure pytest-cov is installed for coverage
 
       - name: Run tests with coverage
         run: pytest --cov=src tests/
@@ -22,4 +24,4 @@ jobs:
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v2
         with:
-          token: ${{ 'ca0abd66-8177-4a84-8705-0779712f7222' }}
+          token: ${{ 'ca0abd66-8177-4a84-8705-0779712f7222' }}  
