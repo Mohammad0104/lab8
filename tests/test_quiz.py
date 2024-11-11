@@ -23,23 +23,19 @@ def test_create_quiz(mock_create_quiz, client):
 # Test for retrieving a quiz by ID
 @patch.object(QuizService, 'get_quiz')
 def test_get_quiz(mock_get_quiz, client):
-    # INCOMPLETE: Set up the mock to simulate a QuizModel object
-    # TODO: Create a MagicMock named `mock_quiz`, set `title` to "Sample Quiz", and `questions` to a sample list
+    # Setting up the mock to simulate a QuizModel object
     mock_quiz = MagicMock()
     mock_quiz.title = "Sample Quiz"
-    mock_quiz.questions = [{"text": "What is 1 + 2?", "answer": "3"}]
+    # Ensure the dictionary keys here match what you use in the controller
+    mock_quiz.questions = [{"question": "What is 1 + 2?", "answer": "3"}]
 
-    # INCOMPLETE: Assign the mock quiz to `mock_get_quiz.return_value`
-    # TODO: Set `mock_get_quiz.return_value` to `mock_quiz`
+    # Assign the mock quiz to `mock_get_quiz.return_value`
     mock_get_quiz.return_value = mock_quiz
 
-    
-    # INCOMPLETE: Make a GET request to retrieve the quiz
-    # TODO: Use `client.get` to send a GET request to `/api/quizzes/1`
+    # Make a GET request to retrieve the quiz
     response = client.get('/api/quizzes/1')
 
-    # INCOMPLETE: Write assertions to check the response
-    # TODO: Assert that status code is 200, `title` in response is "Sample Quiz", and `mock_get_quiz` was called once
+    # Write assertions to check the response
     assert response.status_code == 200
     assert response.json['title'] == "Sample Quiz"
     assert response.json['questions'] == [{"text": "What is 1 + 2?", "answer": "3"}]
